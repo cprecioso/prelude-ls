@@ -165,6 +165,7 @@
         <li><a href="#fix">fix</a></li>
         <li><a href="#over">over</a></li>
         <li><a href="#memoize">memoize</a></li>
+        <li><a href="#tap">tap</a></li>
       </ul>
 
       <a class="module-heading" href="#num">Num</a>
@@ -1303,6 +1304,17 @@ same-length 'one', 'boom' #=> false
 f = memoize expensive-function
 f 2 # slow, but result is then cached
 f 2 # fast
+</pre>
+      </div>
+
+      <div id="tap" class="func">
+        <a href="#tap" class="func-name">tap</a>
+        <div class="func-type">Function &rarr; a &rarr; (Function &rarr; a)</div>
+        <p>Returns a function that only applies the side effects and discards the result, returning the given argument. Works well for chaining mutations to objects.
+<pre class="prettyprint example lang-ls">
+obj # foo: 1, bar: 2
+|> tap (.foo = 3) # returns obj instead of 3
+|> ... # keep applying transformations to obj
 </pre>
       </div>
 
